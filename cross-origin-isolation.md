@@ -61,17 +61,19 @@ Access-Control-Allow-Origin:https://www.example.com
 
 18年1月，著名的`Spectre`和`Meltdown`安全漏洞被公布，他们利用的是CPU架构上的漏洞进行攻击，不更新硬件很难解决。
 
-在网页中，可以利用高精度计时器和`SharedArrayBuffer`发起攻击，因此，Chrome曾经禁止过相关的API一段时间，避免遭受攻击。
+在网页中，可以利用高精度计时器和`SharedArrayBuffer`发起攻击，因此，Chrome曾经禁用过相关API一段时间，避免遭受攻击。
 
 现在，他们通过跨域隔离，尝试在提供相关API能力的同时，又能解决安全问题。
 
-假如网站`evil.com`想要发起攻击，那么首先他需要声明自己进行跨域隔离，跨域隔离之后，访问所有的第三方资源都需要对方服务器的授权，当然第三方不可能给他授权，那么他就无法访问第三方资源，从而无法成功攻击。
+假如网站`evil.com`想要发起攻击，那么首先他需要声明自己进行跨域隔离，跨域隔离之后，访问所有的第三方资源都需要对方服务器的授权，如第三方未授权，则无法访问，因此也无法收到攻击。但是假如第三方跨域头配置的是`*号`（很常见），则仍然有可能遭受攻击。
 
-跨域隔离简单来说就是对当前页面进行强约束，所有第三方资源都需要授权，从而保障自身有比较高的安全性环境，这种环境下，才会开放出`SharedArrayBuffer`这种强大但易受攻击的API。
+跨域隔离简单来说就是对当前页面进行强约束，所有第三方资源都需要授权，从而保障自身有比较高的安全性，这种安全环境下，允许开发者使用`SharedArrayBuffer`等API。
 
 ## 参考
   
 1. [https://developer.chrome.com/blog/enabling-shared-array-buffer/#cross-origin-isolation](https://developer.chrome.com/blog/enabling-shared-array-buffer/#cross-origin-isolation)
-2. 
+2. [Chrome 91 将启用针对 SharedArrayBuffers 的跨域限制](https://blog.p2hp.com/archives/8026)
+3. [Reading privileged memory with a side-channel](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)
+4. [Cross-Origin Resource Policy (CORP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP))
 
   
