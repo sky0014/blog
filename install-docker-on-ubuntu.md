@@ -3,7 +3,6 @@
 Ubuntu源中已存在Docker和Docker Compose，直接安装即可，网上一些文章中写的脚本安装或执行一些命令进行安装已经过时。
 
 ```bash
-apt-get update
 apt-get install docker docker-compose -y
 ```
 
