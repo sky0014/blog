@@ -68,7 +68,12 @@ npm i eslint-plugin-react --save-dev
     ...
     "plugin:react/recommended",
     "plugin:react/jsx-runtime"
-  ] 
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }  
 }
 ```
 
