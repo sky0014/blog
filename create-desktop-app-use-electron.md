@@ -41,6 +41,7 @@ npm i eslint-plugin-react --save-dev
 
 #### 修改tsconfig.json和.eslintrc.json
 ```json
+// tsconfig.json
 {
   "compilerOptions": {
     ...
@@ -63,6 +64,7 @@ npm i eslint-plugin-react --save-dev
 
 由于使用react-jsx之后，不再需要显式引入React库，可能造成eslint警告，在`.eslintrc.json`中添加`plugin:react/jsx-runtime`即可兼容，最终eslint修改如下：
 ```json
+// .eslintrc.json
 {  
   "extends": [
     ...
