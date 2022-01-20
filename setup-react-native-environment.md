@@ -54,9 +54,13 @@ npx react-native init AwesomeTSProject --template react-native-template-typescri
 
 安装完之后，进入项目目录执行
 ```
-npm run android
+yarn android
 ```
 
 此时你的app就可以在模拟器里面跑起来了，enjoy!
 
 ![image](https://user-images.githubusercontent.com/6689073/150142686-487f5942-4c50-4f71-b239-209be7322e1a.png)
+
+## 使用ant design
+
+ant design已支持react native, 配置和使用请参考官方文档：[https://rn.mobile.ant.design/docs/react/introduce-cn](https://rn.mobile.ant.design/docs/react/introduce-cn)
