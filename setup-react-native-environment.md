@@ -22,6 +22,16 @@ npm config set registry=https://registry.npm.taobao.org/
 
 然后设置相应的环境变量
 
+```
+ANDROID_HOME
+ANDROID_SDK_ROOT
+
+%ANDROID_HOME%\platform-tools
+%ANDROID_HOME%\emulator
+%ANDROID_HOME%\tools
+%ANDROID_HOME%\tools\bin
+```
+
 ![image](https://user-images.githubusercontent.com/6689073/150129016-7a7326a4-e1be-4453-af59-3f6244faabc1.png)
 
 ![image](https://user-images.githubusercontent.com/6689073/150142518-8c76a9d3-65da-4381-9add-79c3288028d1.png)
@@ -34,6 +44,11 @@ D:\Program Files\Android\Android Studio\jre
 ```
 
 然后设置环境变量
+```
+JAVA_HOME
+
+%JAVA_HOME%\bin
+```
 
 ![image](https://user-images.githubusercontent.com/6689073/150142111-363d12ae-3f29-43fb-ace4-b7871a58fc8b.png)
 
