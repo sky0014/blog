@@ -76,6 +76,14 @@ yarn android
 
 ![image](https://user-images.githubusercontent.com/6689073/150142686-487f5942-4c50-4f71-b239-209be7322e1a.png)
 
-## 使用ant design
+## 相关链接
 
-ant design已支持react native, 配置和使用请参考官方文档：[https://rn.mobile.ant.design/docs/react/introduce-cn](https://rn.mobile.ant.design/docs/react/introduce-cn)
+### 学习资料
+
+- [ReactNative官网](https://reactnative.dev/)
+- [ReactNative中文网](https://reactnative.cn/)
+
+### UI组件库
+
+- [React Native Elements](https://reactnativeelements.com/)（较成熟，推荐）
+- [ant design for react native](https://rn.mobile.ant.design/docs/react/introduce-cn)
