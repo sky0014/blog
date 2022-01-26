@@ -69,7 +69,7 @@ npx react-native init AwesomeTSProject --template react-native-template-typescri
 
 安装完之后，进入项目目录执行
 ```
-yarn android
+npm run android
 ```
 
 此时你的app就可以在模拟器里面跑起来了，enjoy!
