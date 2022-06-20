@@ -89,3 +89,6 @@ npm run android
 - [React Native Elements](https://reactnativeelements.com/)（推荐）
 - [NativeBase](https://docs.nativebase.io/getting-started)（推荐）
 - [ant design for react native](https://rn.mobile.ant.design/docs/react/introduce-cn)
+
+### 图标
+- [react-native-vector-icons](https://oblador.github.io/react-native-vector-icons/)
