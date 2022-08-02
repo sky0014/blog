@@ -32,10 +32,38 @@
 
 react-native生成的android代码中，默认是没有配置kotlin支持的，这样如果你编写kotlin代码，编译时会报错：“找不到符号”
 
-下面介绍一下如何给react-native android代码手动添加kotlin支持。
+下面介绍一下如何给react-native android代码手动添加kotlin支持：
 
+在`Project build.gradle`中添加：
 
+```groovy
+buildscript {
+    ext {
+        ...
+        kotlinVersion = "1.7.20-Beta"
+    }
+    
+    dependencies {
+        ...
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }    
+}
+```
 
-## Ios
+在`Module build.gradle`中添加：
+
+```groovy
+...
+apply plugin: "kotlin-android"
+
+dependencies {
+    implementation "androidx.core:core-ktx:1.8.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+}
+```
+
+之后kotlin代码就可以被正确的编译了。
+
+## iOS
 
 TODO...
