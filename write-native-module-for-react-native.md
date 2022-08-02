@@ -56,7 +56,6 @@ buildscript {
 在`Module build.gradle`中添加：
 
 ```groovy
-...
 apply plugin: "kotlin-android"
 
 dependencies {
