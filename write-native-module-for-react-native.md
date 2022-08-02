@@ -6,13 +6,16 @@
 
 ## Android
 
+### 编写原生模块
+
 [https://reactnative.dev/docs/native-modules-android](https://reactnative.dev/docs/native-modules-android)
+
 
 ### Android Studio编译乱码问题
 
-运行`npm run android`时，编译失败，控制台错误信息为乱码，使用Android Studio编译也一样。
+如果使用kotlin编写原生模块，运行`npm run android`时，编译会失败，控制台错误信息为乱码，使用Android Studio编译也一样。
 
-解决办法：
+原因是react native默认生成的代码没有配置对kotlin的支持，如何配置支持kotlin可看下一章，这里写一下乱码的解决办法：
 
 进入Android Studio安装目录，修改以下两个文件
 
