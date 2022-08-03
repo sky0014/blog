@@ -10,6 +10,7 @@
 
 [https://reactnative.dev/docs/native-modules-android](https://reactnative.dev/docs/native-modules-android)
 
+参考官方文档，已经写得很详细了。
 
 ### Android Studio编译乱码问题
 
