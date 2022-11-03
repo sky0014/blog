@@ -7,3 +7,4 @@
 1. [在Nodejs中使用ESM模块](./use-esm-in-node.md)
 1. [搭建react native开发环境](./setup-react-native-environment.md)
 1. [为ReactNative编写原生模块](./write-native-module-for-react-native.md)
+1. [使用Typescript扩展第三方库的类型](./extend-thirdparty-lib-types-with-typescript.md)
