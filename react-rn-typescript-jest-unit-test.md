@@ -59,17 +59,17 @@ it("sample", () => {
 
 Jest 默认会自动寻找 test 目录以及\*.test.js 文件执行测试，当然也可以通过配置指定目录及匹配文件。
 
-详细配置及测试用例编写教程可参考 Jest 官网：[https://jestjs.io/](https://jestjs.io/)
+详细配置项及测试用例编写教程可参考 Jest 官网：[https://jestjs.io/](https://jestjs.io/)
 
 最后，执行`npm test`，即可触发 Jest 执行测试用例。
 
 ## 支持 React 和 Typescript
 
-如果使用了 React 和 Typescript，需要带代码进行转换，以让其可以在 node 环境中运行。
+如果使用了 React 和 Typescript，需要将代码进行转换，以让其可以在 node 环境中运行。
 
 Jest 默认即支持 babel 转换，你只需要配置 babel 转换规则即可。
 
-> 你也可以使用[ts-jest](https://www.npmjs.com/package/ts-jest)进行转换，然而我个人在实际使用中发现存在一些覆盖率代码定位以及调试方面的问题，因此后面还是使用 babel 进行配置，参考此文：[https://blog.oluwasetemi.dev/migrating-a-react-code-base-test-from-using-ts-jest-to-babel-jest](https://blog.oluwasetemi.dev/migrating-a-react-code-base-test-from-using-ts-jest-to-babel-jest)
+> 你也可以使用[ts-jest](https://www.npmjs.com/package/ts-jest)进行转换，然而我个人在实际使用中发现一些覆盖率相关的代码定位问题，以及调试相关问题，因此后面还是使用 babel 进行配置，参考此文：[https://blog.oluwasetemi.dev/migrating-a-react-code-base-test-from-using-ts-jest-to-babel-jest](https://blog.oluwasetemi.dev/migrating-a-react-code-base-test-from-using-ts-jest-to-babel-jest)
 
 首先安装 babel 相关包：
 
@@ -101,6 +101,8 @@ Jest 同样支持测试 React Native。
 npm i @testing-library/react-native @testing-library/jest-native metro-react-native-babel-preset --save-dev
 ```
 
+注意，RN 的 babel 转换规则与 web 不同，因此这里我们安装了包含 RN 规则的包：`metro-react-native-babel-preset`，下面会将其设置到 babel 配置中。
+
 修改`jest.config.js`：
 
 ```js
@@ -116,7 +118,7 @@ module.exports = {
   ],
   // RN转换规则与web不同，在这里强制指定，覆盖babel.config.js中的规则
   transform: {
-    // overwrite react-native jest-preset transform key (^.+\\.(js|ts|tsx)$)
+    // must overwrite react-native jest-preset transform key (^.+\\.(js|ts|tsx)$)
     "^.+\\.(js|ts|tsx)$": [
       "babel-jest",
       {
@@ -135,7 +137,7 @@ module.exports = {
 
 ## 同时支持 React17、React18 以及 React Native
 
-有时，我们同一份测试用例想要运行在不同环境下，比如 React17、React18 以及 React Native，Jest 也提供了这种功能。
+有时，我们的测试用例想要运行在不同环境下，比如 React17、React18 以及 React Native，Jest 也提供了这种功能。
 
 在 Jest 配置中，通过`moduleNameMapper`项可以将包进行重定向，我们项目中本来使用的是 React18，如果想将其切换到 React17 下运行，可以做如下配置：
 
@@ -164,7 +166,7 @@ module.exports = {
     ...
 ```
 
-要将这几种情况统一到一起进行测试，可以在`jest.config.js`中配置`projects`项：
+要将多种环境统一到一起进行测试，可以在`jest.config.js`中配置`projects`项：
 
 ```js
 const react17 = ...
@@ -176,11 +178,11 @@ module.exports = {
 };
 ```
 
-此时，运行`npm test`，Jest 就会自动切换相关环境一次性进行测试。
+此时，运行`npm test`，Jest 就会自动切换相关环境，一次性测试完毕。
 
 ## 代码覆盖率
 
-代码覆盖率是单元测试一个很重要的指标，我们尽量要将代码做到全覆盖，Jest 提供了检测代码覆盖率的功能，其底层是使用的[Istanbul](https://github.com/gotwarlost/istanbul)
+代码覆盖率是单元测试一个很重要的指标，我们最好将代码尽量做到全覆盖，Jest 也集成了检测代码覆盖率的功能，底层使用的是[Istanbul](https://github.com/gotwarlost/istanbul)
 
 使用方法：
 
@@ -197,7 +199,7 @@ jest --coverage
   },
 ```
 
-此时，运行`npm test`即会自动在项目目录下生成`coverage`文件夹，其中包含代码覆盖率的相关信息。通过下图展示的 `index.html` 文件，可以很方便的在浏览器中查看：
+此时，运行`npm test`即会自动在项目目录下生成`coverage`文件夹，其中包含代码覆盖率的相关信息。通过下图标出的 `index.html` 文件，可以在浏览器中很方便的查看相关信息：
 
 ![image](https://user-images.githubusercontent.com/6689073/222718396-9c5e43f2-1b41-4a97-b4c7-e10e7403b420.png)
 
@@ -205,7 +207,7 @@ jest --coverage
 
 ![image](https://user-images.githubusercontent.com/6689073/222718841-4f92c9a2-d423-439a-b76e-73b837364e5c.png)
 
-使用以下指令，可以忽略部分代码的覆盖率检测：
+同时，如果你有部分代码无需检测，为避免拉低整体覆盖率，可使用如下指令进行忽略：
 
 - `/* istanbul ignore file */` 忽略整个文件
 - `/* istanbul ignore next */` 忽略下一句
@@ -215,7 +217,9 @@ jest --coverage
 
 ### 只运行某个用例
 
-我们在项目中，可能已经写了很多的测试用例，在写一个新用例时，可能要反复调整，如果全部都运行一遍太浪费时间，Jest 为我们提供了简单的办法让我们可以只运行某一个用例，只需要在后面加上`.only 即可，其他用例都会被自动跳过，示例如下：
+假如我们在项目中，已经写了很多的测试用例，在写一个新用例时，可能需要反复调整，如果每次调整都执行`npm test`观察，会将全部用例都运行一遍，太浪费时间。
+
+Jest 提供了简单的办法可以让我们只运行某一个用例，只需要在用例后面加上`.only`即可，其他用例都会被自动跳过，这样我们调整用例的效率可以大大提升，示例如下：
 
 ```js
 it('test1', ()=> { ... })
@@ -230,12 +234,14 @@ it.only('new test', ()=> { ... })
 
 运行 Jest 时，我们同样可以进行调试，帮助我们分析问题。
 
-先打上断点，然后在`package.json`的`script`选项上选择调试，然后选择`test`即可：
+首先在需要观察的地方打上断点，然后在`package.json`的`script`选项上选择`调试`，再选择`test`即可：
 
 ![image](https://user-images.githubusercontent.com/6689073/222723094-10c36bef-d73f-46d9-83ca-9dcf5ca3dcb1.png)
 
-## 示例
+![image](https://user-images.githubusercontent.com/6689073/222727713-842ee597-e871-4605-8112-a836fdfae0a9.png)
 
-以上所述内容的完整实践示例可参考此项目（PS：欢迎使用及 star 此项目，一定会让你的开发更简单）：
+## 完整示例
+
+以上所述内容的完整实践示例可参考此项目（PS：欢迎使用及 star ，相信一定会让你的开发更简单）：
 
 [https://github.com/sky0014/store](https://github.com/sky0014/store)
