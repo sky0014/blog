@@ -10,3 +10,4 @@
 1. [为 ReactNative 编写原生模块](./write-native-module-for-react-native.md)
 1. [使用 Typescript 扩展第三方库的类型](./extend-thirdparty-lib-types-with-typescript.md)
 1. [Web 各版本浏览器之间的 WebRTC 兼容问题及解决方案](./webrtc-workaround-of-browsers.md)
+1. [使用 Jest 测试你的 React、React Native 代码](./react-rn-typescript-jest-unit-test.md)
