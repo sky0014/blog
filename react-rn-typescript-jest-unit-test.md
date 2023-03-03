@@ -242,6 +242,6 @@ it.only('new test', ()=> { ... })
 
 ## 完整示例
 
-以上所述内容的完整实践示例可参考此项目（PS：欢迎使用及 star ，相信一定会让你的开发更简单）：
+以上所述内容的完整实践可参考此项目（PS：欢迎使用及 star ，相信一定会让你的开发更简单）：
 
 [https://github.com/sky0014/store](https://github.com/sky0014/store)
