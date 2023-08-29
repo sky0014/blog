@@ -62,3 +62,4 @@ chrome --enable-logging --vmodule=compositor*=0,layer_tree*=0,display*=0,*=4
 ## 参考
 
 - [https://www.chromium.org/for-testers/enable-logging/](https://www.chromium.org/for-testers/enable-logging/)
+- [https://chromium.googlesource.com/chromium/src/+/HEAD/base/logging.h](https://chromium.googlesource.com/chromium/src/+/HEAD/base/logging.h)
