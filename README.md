@@ -13,6 +13,7 @@
 1. [使用 Jest 测试你的 React、React Native 代码](./react-rn-typescript-jest-unit-test.md)
 1. [使用非相对路径（non-relative）引用代码文件](./use-non-relative-import.md)
 1. [开启及查看Chrome日志](./enable-chrome-debug-log.md)
+1. [如何使用及生成 Typescript 的 dts 文件](./typescript-dts-usage-and-generator.md)
 
 以前的文章
 
