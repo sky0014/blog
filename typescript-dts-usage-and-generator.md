@@ -101,7 +101,7 @@ declare module "*.png" {
 
 ## 在TS库中自动生成DTS
 
-假如你用ts编写了一个库，给其他人使用的时候最好也能提供一份dts类型文件，以便于他人获得更好的类型提示。
+假如你用ts编写了一个库，给其他人使用的时候最好也能提供一份dts类型文件，以便于他人获得更好的类型提示和检查。
 
 如果自己手写，可能比较繁琐，本文将提供几种方法自动生成高质量的dts文件。
 
@@ -135,9 +135,9 @@ export default [
 
 ### 通用：使用`dts-bundle-generator`工具
 
-如果是使用其他工具打包的，可以使用下面的通用方案：
+如果是使用的其他打包工具，可以使用下面的通用方案：
 
-1. 打开typescript的`declaration`选项，编译时会同时生成d.ts类型文件，还可以通过`declarationDir`选项指定d.ts存放的目录
+1. 打开typescript的`declaration`选项，tsc编译时会同时生成d.ts类型文件，还可以通过`declarationDir`选项指定d.ts存放的目录
 
     ```json
     // tsconfig.json
@@ -163,8 +163,10 @@ export default [
     使用命令行打包生成单一d.ts：
 
     ```bash
-    dts-bundle-generator dist/types/index.d.ts -o dist/yourlib.d.ts --export-referenced-types false 
+    npx dts-bundle-generator dist/types/index.d.ts -o dist/yourlib.d.ts --export-referenced-types false 
     ```
+
+    其输入源是第一步生成的类型文件中，你的入口文件对应的d.ts文件
 
     - 参数o：指定输出文件路径
     - 参数export-referenced-types：指定是否将所有引用类型都export
