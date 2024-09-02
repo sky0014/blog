@@ -12,8 +12,9 @@
 1. [Web 各版本浏览器之间的 WebRTC 兼容问题及解决方案](./webrtc-workaround-of-browsers.md)
 1. [使用 Jest 测试你的 React、React Native 代码](./react-rn-typescript-jest-unit-test.md)
 1. [使用非相对路径（non-relative）引用代码文件](./use-non-relative-import.md)
-1. [开启及查看Chrome日志](./enable-chrome-debug-log.md)
+1. [开启及查看 Chrome 日志](./enable-chrome-debug-log.md)
 1. [如何使用及生成 Typescript 的 dts 文件](./typescript-dts-usage-and-generator.md)
+1. [使用 WebRTC Insertable Streams](./use-webrtc-insertable-streams.md)
 
 以前的文章
 
